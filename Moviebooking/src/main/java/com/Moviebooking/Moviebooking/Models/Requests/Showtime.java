@@ -1,8 +1,10 @@
 package com.Moviebooking.Moviebooking.Models.Requests;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import jakarta.persistence.*;
 import lombok.Data;
+
+import java.util.List;
 
 /*ShowTime (id, time, price, movie_id, theatre_id)*/
 /*Relation(theatre-showtime)*/
@@ -13,6 +15,17 @@ public class Showtime {
     private Integer showtime_id;
     private long showtime;
     private Integer price;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "movie_id")
+    @JsonManagedReference
+    private Movie movie;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "theatre_id")
+    @JsonManagedReference
+    private Theatre theatre_id;
+
+
+
 
 
     public void setShowtime_id(int showtime_id) {

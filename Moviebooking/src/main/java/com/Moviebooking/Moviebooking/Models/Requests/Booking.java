@@ -3,10 +3,16 @@ package com.Moviebooking.Moviebooking.Models.Requests;
 //Booking (id, customerName, numberOfTickets, showTime_id)
 /*Relations (Movie - Booking - showtime)*/
 
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+
 public class Booking {
     private int booking_id;
     private String customer_name;
     private long numberOfTickets;
+    @ManyToOne
+    @JoinColumn(name = "showtime_id")
+    private Showtime showtime;
 
     public void setBooking_id(int booking_id) {
         this.booking_id = booking_id;
