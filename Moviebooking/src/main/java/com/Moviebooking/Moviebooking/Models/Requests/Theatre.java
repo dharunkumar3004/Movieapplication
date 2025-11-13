@@ -2,9 +2,14 @@ package com.Moviebooking.Moviebooking.Models.Requests;
 
 /*Theatre (id, name, location)*/
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import lombok.Data;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @Entity
@@ -13,6 +18,11 @@ public class Theatre {
     private Integer theatre_id;
     private String theatre_name;
     private Character location;
+    @OneToMany(mappedBy = "theatre")
+    @JsonManagedReference
+
+    List<Showtime> showtimes;
+
 
     public void setTheatre_id(int theatre_id) {
         this.theatre_id = theatre_id;
