@@ -12,6 +12,7 @@ import java.util.List;
 @Entity
 public class Showtime {
     @Id
+    private int id;
     private Integer showtime_id;
     private long showtime;
     private Integer price;
@@ -22,7 +23,7 @@ public class Showtime {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "theatre_id")
     @JsonManagedReference
-    private Theatre theatre_id;
+    private Theatre theatre;
 
 
 

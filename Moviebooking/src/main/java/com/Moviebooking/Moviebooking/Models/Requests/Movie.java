@@ -16,7 +16,8 @@ import java.util.List;
 public class Movie {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int movie_id;
+    private int id;
+    private int movieId;
     private long movie_time;
     private String genre;
     private int duration;
@@ -28,7 +29,7 @@ public class Movie {
     }
 
     public void setMovie_id(int movie_id) {
-        this.movie_id = movie_id;
+        this.movieId = movie_id;
     }
 
     public void setMovie_time(long movie_time) {
@@ -44,7 +45,7 @@ public class Movie {
     }
 
     public int getMovie_id() {
-        return movie_id;
+        return movieId;
     }
 
     public long getMovie_time() {

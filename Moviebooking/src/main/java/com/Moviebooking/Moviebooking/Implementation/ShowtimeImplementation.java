@@ -24,6 +24,12 @@ import java.util.Optional;
             showtimeRepo.save(showtime);
             return "Showtime has been added successfully";
         }
+
+    @Override
+    public List<Showtime> getShowtimesByMovie(int movieId) {
+        return List.of();
+    }
+
     @Override
     public String updateShowtime(int id, Showtime updatedShowtime) {
         Optional<Showtime> showtime = showtimeRepo.findById(id);
@@ -46,10 +52,10 @@ import java.util.Optional;
         }
         return "Movie not found";
     }
-        @Override
-        public List<Showtime> getShowtimesByMovie(int movieId) {
-            return showtimeRepo.findByMovieId(movieId);
-        }
+//        @Override
+//        public List<Showtime> getShowtimesByMovie(int movieId) {
+//            return showtimeRepo.findByMovieId(movieId);
+//        }
 
         @Override
         public List<Showtime> getShowtimesByTheatre(int theatreId) {

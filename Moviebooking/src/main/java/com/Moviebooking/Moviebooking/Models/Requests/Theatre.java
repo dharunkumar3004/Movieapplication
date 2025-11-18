@@ -15,13 +15,14 @@ import java.util.List;
 @Entity
 public class Theatre {
     @Id
+    private int id;
     private Integer theatre_id;
     private String theatre_name;
     private Character location;
+    private int tickets;
     @OneToMany(mappedBy = "theatre")
     @JsonManagedReference
-
-    List<Showtime> showtimes;
+    List<Showtime> showtimes = new ArrayList<>();
 
 
     public void setTheatre_id(int theatre_id) {
